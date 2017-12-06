@@ -11,6 +11,12 @@ const app = express()
 // Plugins 
 app.use(bodyParser.json()) // Allows me to have JSON uploads (POST/PUT)
 
+
+// Routes
+app.use([
+	require('./routes/products')
+])
+
 // JSON error hanling
 app.use((error, req, res, next) => {
 	res.send({ error: error.mesage})
@@ -23,7 +29,7 @@ app.use((req, res, next) => {
 	})
 })
 
-// Routes
+// Server
 app.listen(7000, (error) => {
 	if (error) {
 		console.log('There was a problem starting the server', error)
