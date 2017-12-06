@@ -15,8 +15,8 @@ router.get('/products', requireJWT, (req, res) => {
 
 router.get('/products/:id', requireJWT, (req, res) => {
 	Product.findById(req.params.id)
-		.then((products) => {
-			res.send(products)
+		.then((product) => {
+			res.send(product)
 		})
 		.catch((error) => {
 			res.status(500).send({ error: error.message })

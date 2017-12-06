@@ -16,7 +16,8 @@ app.use(bodyParser.json()) // Allows me to have JSON uploads (POST/PUT)
 // Routes
 app.use([
 	require('./routes/products'),
-	require('./routes/auth')
+	require('./routes/auth'),
+	require('./routes/stores')
 ])
 
 // JSON error hanling
