@@ -4,7 +4,7 @@ const { requireJWT } = require('../middleware/auth')
 
 const router = new express.Router()
 
-router.get('/products', (req, res) => {
+router.get('/products', requireJWT, (req, res) => {
 	Product.find().then((products) => {
 		res.send(products)
 	})
