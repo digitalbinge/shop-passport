@@ -13,4 +13,14 @@ router.get('/products', requireJWT, (req, res) => {
 	})
 })
 
-module.exports = router
+router.get('/products/:id', requireJWT, (req, res) => {
+	Product.findById(req.params.id)
+		.then((products) => {
+			res.send(products)
+		})
+		.catch((error) => {
+			res.status(500).send({ error: error.message })
+		})
+})
+
+module.exports = router;
