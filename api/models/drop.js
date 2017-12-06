@@ -1,4 +1,4 @@
-const Product = require('./Product')
+const Product = require('./Product');
 
 Product.deleteMany()
 	.then(() => {

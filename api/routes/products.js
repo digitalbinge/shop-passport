@@ -1,5 +1,6 @@
 const express = require('express')
 const Product = require('../models/Product')
+const { requireJWT } = require('../middleware/auth')
 
 const router = new express.Router()
 
