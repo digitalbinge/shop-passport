@@ -1,6 +1,6 @@
 const express = require('express')
 const Product = require('../models/Product')
-const { requireJWT } = require('../middleware/auth')
+const { requireJWT, verifyAdmin } = require('../middleware/auth')
 
 const router = new express.Router()
 
@@ -21,6 +21,42 @@ router.get('/products/:id', requireJWT, (req, res) => {
 		.catch((error) => {
 			res.status(500).send({ error: error.message })
 		})
+})
+
+router.post('/products', requireJWT, verifyAdmin, (req, res) => {
+	Product.create({
+		brandName: req.body.brandName,
+		name: req.body.name
+	})
+		.then((product) => {
+			res.send(product)
+		})
+		.catch((error) => {
+			res.status(500).send({ error: error.message })
+		})
+})
+
+router.patch('/products', requireJWT, verifyAdmin, (req, res) => {
+	Product.findByIdAndUpdate(req.body._id, { $set: { 
+		brandName: req.body.brandName,
+		name: req.body.name } }, { new: true }
+	)
+	.then((product) => {
+		res.send(product)
+	})
+	.catch((error) => {
+		res.status(500).send({ error: error.message })
+	})
+})
+
+router.delete('/products/:id', requireJWT, verifyAdmin, (req, res) => {
+	Product.findByIdAndRemove(req.body._id)
+	.then((product) => {
+		res.send(product)
+	})
+	.catch((error) => {
+		res.status(500).send({ error: error.message })
+	})
 })
 
 module.exports = router;
