@@ -2,7 +2,7 @@ import React from 'react';
 import { Input, Control, Icon, Button, Container, Box, Title } from 'reactbulma';
 // import axios from 'axios';
 
-export default ({ handleSignIn, loginError }) => (
+export default ({ handleSignIn, loginError, handleRegisterForm }) => (
 	
 	<Container>
 		<div>{ loginError && loginError }</div>
@@ -22,7 +22,9 @@ export default ({ handleSignIn, loginError }) => (
 		     	</Icon> <br /> <br />	
 				</Control> 
 				<Button>Login</Button>
+				<Button onClick={handleRegisterForm}>Sign Up</Button>
 			</form>
+			
 		</Box>
 	</Container>
 )
