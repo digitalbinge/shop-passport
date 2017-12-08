@@ -37,3 +37,11 @@
 .box {
   width: 40%;
 }
+
+.button {
+  margin: 0 10px;
+}
+
+.control {
+  margin: 10px 0;
+}
