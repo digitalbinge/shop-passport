@@ -9,13 +9,13 @@ export default ({ handleRegisterSubmit, handleRegisterForm }) => (
 			<Title>Login</Title>
 			<form onSubmit={handleRegisterSubmit} >
 				<Control hasIconsLeft>
-			    <Input placeholder="First Name" name="firstName" type="firstName" />
+			    <Input placeholder="First Name" name="firstName" type="text" />
 			    <Icon left>
 			      <i className="fa fa-user"/>
 			    </Icon> 
 				</Control> 
 				<Control hasIconsLeft>   
-		     	<Input placeholder="Last Name" name="lastName" type="lastName" />
+		     	<Input placeholder="Last Name" name="lastName" type="text" />
 		     	<Icon left>
 		       	<i className="fa fa-user"/>
 		     	</Icon>
